@@ -40,7 +40,7 @@ node {
                 // Ensure that the application name is appropriate may need to include -application after artifactid
                 util.sendSlackMessage(slackTeamMessageDestination, ":jenkins: ${pom.artifactId} ${pom.version} build started: <${env.BUILD_URL}|${env.JOB_NAME}#${env.BUILD_NUMBER}> \n ${changeLogMessage}")
                 // Add test related commands ass appropriate eg -Dbasepom.test.timeout=0 -Dbasepom.failsafe.timeout=0
-                sh 'mvn -B clean install'
+                sh 'mvn -B clean deploy'
             } else {
                 // Ensure that the application name is appropriate may need to include -application after artifactid
                 if(slackMessageDestination != "@Jenkins") {
