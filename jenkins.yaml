@@ -1,0 +1,20 @@
+# This file is completely arbitrary YAML that you might (or might not) want to use
+# See an example of how it's used here:
+#   1. Loading build configuration (defaults to looking in 'config/jenkins.yaml'
+#      --> https://github.com/usermindinc/skylab/blob/5d74db89d4f3cb09c11800cbcc3d98229574b4a6/Jenkinsfile#L11
+#
+#   2. Using build configuration parameters:
+#      --> https://github.com/usermindinc/skylab/blob/5d74db89d4f3cb09c11800cbcc3d98229574b4a6/Jenkinsfile#L28-L29
+#
+---
+# Default settings shared for all builds (unless directly overridden)
+common: &common
+    javaVersion:        'oraclejdk8'
+    mavenVersion:       'Maven_3.5.4'
+default: # this block gets used if no branch-specific one is supplied
+    << : *common # this pulls in everything from 'common'
+
+master:  # Configuration for master branch
+    << : *common # this pulls in everything from 'common'
+    deploymentSlackRoom: staging
+    deploymentDirectory: uploads/staging

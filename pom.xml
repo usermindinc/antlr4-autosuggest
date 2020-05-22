@@ -160,4 +160,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Releases</name>
+			<url>http://nexus.internal.usermind.com:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Snapshots</name>
+			<url>http://nexus.internal.usermind.com:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 </project>
